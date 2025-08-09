@@ -1,30 +1,53 @@
-# express-passport-template
+# Members Only
 
-A QoL template repository for Backend setup with Express, Passport, EJS.
+An Express application representing an exclusive clubhouse where your members
+can write anonymous posts. Inside the clubhouse, members can see who the author
+of a post is, but outside they can only see the story and wonder who wrote it.
 
-## Instruction
+## Database
 
-### Forking
+### Entity Relational Diagram
 
-To use this template, you can fork the repository to your repository on GitHub.
-Then, you can create any new Express application repository using it.
+![](https://github.com/BradCodeCraft/odin-members-only/blob/main/public/odin-members-only.jpg?raw=true)
 
-### Installation
+### Entities
 
-After, you can execute the codes below to install all dependencies.
+Two main entities: User and Message
 
-```bash
-npm install
-```
+Relationship: One-to-many
 
-> Feel free to update the `package.json` file to provide accurate information
-> about your project!
+Explanation: a User can have **zero or more** messages, while a Message can
+only have **one** user.
 
-### Environment variables
+## Routes
 
-This template employs environment variables to store sensitive information. As
-a result, please ensure that you have a `.env` file in place with the necessary
-variables.
+### `GET` request
 
-> **Note**: You can search for `process.env` to find all the environment
-> variables used.
+`/` - retrieves welcome page
+
+`/sign-up` - retrieves sign-up page
+
+`/log-in` - retrieves log-in page
+
+`/messages` - retrieves all messages page
+
+- If user is logged in, he/she can see the author of a post
+
+`/messages/new` - retrieves new message form page
+
+### `POST` request
+
+`/sign-up` - creates new user
+
+`/log-in` - authenticates a user
+
+`/messages/new` - creates new message
+
+### `DELETE` request
+
+`/userId` - deletes a user of id _userId_
+
+> **User `DELETE` request enforce `CASCADE DELETE`**. This means that deleting
+> a user will delete all messages associated with that user.
+
+`/messages/:messageId` - delete a message of id _messageId_
