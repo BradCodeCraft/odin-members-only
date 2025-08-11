@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --env-file=./.env --watch ./app.js",
-    "schema": "node --env-file=./.env ./db/schema.js"
+    "schema": "node --env-file=./.env ./db/schema.js",
+    "data": "node --env-file=./.env ./db/data.js"
   },
   "repository": {
     "type": "git",
