@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --eggshell: #f4f1de;
+  --burnt-sienna: #e07a5f;
+  --delft-blue: #3d405b;
+  --cambridge-blue: #81b29a;
+  --sunset: #f2cc8f;
+}
+
+body {
+  background-color: var(--delft-blue);
+
+  color: var(--eggshell);
+  font-family: sans-serif;
+
+  display: flex;
+  justify-content: center;
+
+  cursor: default;
+}
+
+button {
+  will-change: transform;
+  transition: transform 0.25s ease-in-out;
+
+  background-color: var(--cambridge-blue);
+
+  border: none;
+  border-radius: 20px;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  padding: 5px 15px;
+
+  width: 150px;
+
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+a {
+  width: fit-content;
+
+  color: var(--eggshell);
+  font-size: 1.4rem;
+}
+
+a:visited {
+  color: var(--sunset);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+.navigation-bar {
+  padding: 5px 0;
+}
+
+.navigation-bar > ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+
+  list-style: none;
+
+  font-size: 1.4rem;
+}
+
+.errors-list {
+  padding: 5px 15px;
+
+  list-style: none;
+
+  background-color: var(--burnt-sienna);
+}
+
+.errors-list li {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--eggshell);
+}
+
+.page {
+  width: 800px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.page > h1 {
+  text-align: center;
+}
+
+.page > a {
+  margin: 0 auto;
+}
+
+.button-link-container {
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 500px;
+
+  margin: auto;
+  padding: 20px 40px;
+
+  background-color: var(--eggshell);
+
+  color: var(--delft-blue);
+
+  border-radius: 20px;
+}
+
+.form > label,
+.form > input,
+.form > textarea {
+  font-size: 1.4rem;
+}
+
+.form > label {
+  font-weight: bold;
+}
+
+.form > input,
+.form > textarea {
+  padding: 2px 5px;
+}
+
+.form > textarea {
+  resize: none;
+}
+
+.form > p > a {
+  color: var(--delft-blue);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons button {
+  background-color: var(--delft-blue);
+
+  color: var(--eggshell);
+}
+
+.button-link-container button {
+  background-color: var(--burnt-sienna);
+}
+
+.page > .new-message-link {
+  margin: 0 0 0 auto;
+}
+
+.message-card {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+}
+
+.message-card button {
+  background-color: var(--burnt-sienna);
+}

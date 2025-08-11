@@ -4,7 +4,14 @@ import path from "node:path";
 import passport from "passport";
 import pool from "./db/pool.js";
 import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 import { Strategy as LocalStrategy } from "passport-local";
+import baseRouter from "./routers/baseRouter.js";
+import messagesRouter from "./routers/messagesRouter.js";
+import logInRouter from "./routers/logInRouter.js";
+import signUpRouter from "./routers/signUpRouter.js";
+import logOutRouter from "./routers/logOutRouter.js";
+import membershipRouter from "./routers/membershipRouter.js";
 
 const app = express();
 
@@ -15,9 +22,13 @@ app.use(express.static(path.join(process.cwd(), "public")));
 
 app.use(
   session({
+    store: new (connectPgSimple(session))({
+      pool: pool,
+    }),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
   }),
 );
 app.use(passport.session());
@@ -55,6 +66,13 @@ passport.deserializeUser(async (id, done) => {
     done(err);
   }
 });
+
+app.use("/", baseRouter);
+app.use("/log-in", logInRouter);
+app.use("/sign-up", signUpRouter);
+app.use("/log-out", logOutRouter);
+app.use("/membership", membershipRouter);
+app.use("/messages", messagesRouter);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

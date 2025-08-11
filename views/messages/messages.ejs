@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Members Only</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  
+  <body>
+    <div class="messages-page page">
+      <%- include("../include/navigationBar.ejs") %>
+
+      <h1>Messages</h1>
+
+      <% if (locals.user) { %> 
+        <a href="/messages/new" class="new-message-link">Add new message</a>
+      <% } %>
+
+      <% if (locals.messages) { %>
+        <% messages.forEach((message) => { %>
+          <div class="message-card">
+            <h2><%= message.title %></h2>
+            <% if (locals.user) { %>
+              <% if (user["membership_status"] === "member" || user["membership_status"] === "admin") { %>
+                <p>by user's id <%= message.author %></p>
+                <p><%= message.timestamp %></p>
+              <% } %> 
+              <% if (message.author === user.id || user["membership_status"] === "admin") { %>
+                <a href="/messages/<%= message.id %>/delete">
+                  <button onclick="return confirm('DO you want to delete this message?')">Delete</button>
+                </a>
+              <% } %>
+            <% } %>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </body>
+</html>

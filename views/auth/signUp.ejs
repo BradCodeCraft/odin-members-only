@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Members Only</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  
+  <body>
+    <div class="messages-page page">
+      <h1>Sign Up</h1>
+
+      <form action="/sign-up" method="post" class="sign-up-form form">
+        <%- include("../include/errors.ejs") %>
+
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          name="name" 
+          id="name" 
+          required
+        >
+        
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          name="username" 
+          id="username" 
+          autocomplete="username"
+          required
+        >
+        <label for="password">Password</label>
+        <input 
+          type="password"
+          name="password"
+          id="password" 
+          autocomplete="current-password" 
+          required
+        >
+
+        <p>Already has an account? <a href="/log-in">Log In</a></p>
+
+        <div class="form-buttons">
+          <button type="submit">Sign up</button>
+          <a href="/messages" class="button-link-container" tabindex="-1">
+            <button type="button">Cancel</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

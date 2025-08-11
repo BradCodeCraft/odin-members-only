@@ -4,7 +4,8 @@
   "description": "A QoL template repository for Backend setup with Express, Passport, EJS.",
   "main": "index.js",
   "scripts": {
-    "dev": "node --env-file=./.env --watch ./app.js"
+    "dev": "node --env-file=./.env --watch ./app.js",
+    "schema": "node --env-file=./.env ./db/schema.js"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,11 @@
   "homepage": "https://github.com/BradCodeCraft/express-passport-template#readme",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "connect-pg-simple": "^10.0.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pg": "^8.16.3"

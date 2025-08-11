@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Members Only</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  
+  <body>
+    <div class="messages-page page">
+      <h1>Join the club</h1>
+
+      <form action="/membership" method="post" class="sign-up-form form">
+        <%- include("../include/errors.ejs") %>
+
+        <label for="passcode">Passcode</label>
+        <input 
+          type="password" 
+          name="passcode" 
+          id="passcode" 
+          required
+        >
+        
+        <div class="form-buttons">
+          <button type="submit">Join</button>
+          <a href="/messages" class="button-link-container" tabindex="-1">
+            <button type="button">Cancel</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

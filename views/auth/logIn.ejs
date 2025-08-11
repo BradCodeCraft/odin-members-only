@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Members Only</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  
+  <body>
+    <div class="messages-page page">
+      <h1>Log In</h1>
+
+      <form action="/log-in" method="post" class="log-in-form form">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          name="username" 
+          id="username" 
+          autocomplete="username"
+          required
+        >
+        <label for="password">Password</label>
+        <input 
+          type="password"
+          name="password"
+          id="password" 
+          autocomplete="current-password" 
+          required
+        >
+
+        <p>New here? <a href="/sign-up">Sign Up</a></p>
+
+        <div class="form-buttons">
+          <button type="submit">Log In</button>
+          <a href="/messages" class="button-link-container" tabindex="-1">
+            <button type="button">Cancel</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
