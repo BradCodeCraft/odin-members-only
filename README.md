@@ -4,6 +4,19 @@ An Express application representing an exclusive clubhouse where your members
 can write anonymous posts. Inside the clubhouse, members can see who the author
 of a post is, but outside they can only see the story and wonder who wrote it.
 
+## Environment Variables
+
+For this application to work correctly, these environment variables must exist:
+
+- `PORT` used for local development
+- `CONNECTIONSTRING`used to connect to database
+- `SECRET` - used for session
+- `SALT` - used for hashing password
+- `PASSCODE` - used for membership
+- `TESTUSERPASSWORD` - used for testuser dummy user
+- `TESTMEMBERPASSWORD` - used for testmember dummy user
+- `TESTADMINPASSWORD` - used for testadmin dummy user
+
 ## Database
 
 ### Entity Relational Diagram
